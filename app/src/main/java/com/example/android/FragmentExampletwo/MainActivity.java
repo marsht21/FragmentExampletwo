@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.FragmentExample1;
+package com.example.android.FragmentExampletwo;
 
 import android.content.Intent;
 import android.support.v4.app.FragmentManager;
@@ -23,12 +23,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SimpleFragment.OnFragmentInteractionListener{
     private Button mButton;
     private boolean isFragmentDisplayed = false;
     static final String STATE_FRAGMENT = "state_of_fragment";
     private Button next;
+    private int mRadioButtonChoice = 2;
 
 
     @Override
@@ -36,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mButton = findViewById(R.id.open_button);
-        next = findViewById(R.id.next_button);
 
 
         mButton.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void displayFragment() {
-        SimpleFragment simpleFragment = SimpleFragment.newInstance();
+        SimpleFragment simpleFragment = SimpleFragment.newInstance(mRadioButtonChoice);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
@@ -88,8 +89,10 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    public void launchSecondActivity(View view) {
-        Intent intent = new Intent(this, SecondActivity.class);
-        startActivity(intent);
+
+    @Override
+    public void onRadioButtonChoice(int choice) {
+        mRadioButtonChoice = choice;
+        Toast.makeText(this, "Choice is " + Integer.toString(choice), Toast.LENGTH_SHORT).show();
     }
 }

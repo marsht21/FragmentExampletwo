@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/my_fragment_color"
     android:orientation="vertical"
-    tools:context="com.example.android.FragmentExample1.SimpleFragment">
+    tools:context="com.example.android.FragmentExampletwo.SimpleFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -39,27 +39,5 @@
         </RadioGroup>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="4dp"
-            android:text="@string/like_the_song"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-        <RatingBar
-            android:id="@+id/rating_bar_song"
-            style="@android:style/Widget.DeviceDefault.RatingBar.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_standard"
-            android:numStars="6"
-            android:stepSize="0.5"
-            android:isIndicator="false"/>
-    </LinearLayout>
 
 </LinearLayout>
