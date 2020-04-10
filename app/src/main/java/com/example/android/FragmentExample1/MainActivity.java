@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
     }
 
-    public void onNextClick(View view) {
+    public void launchSecondActivity(View view) {
         Intent intent = new Intent(this, SecondActivity.class);
         startActivity(intent);
     }
